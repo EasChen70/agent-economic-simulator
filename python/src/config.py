@@ -10,11 +10,7 @@ HUNGER_PER_TICK = 10
 HUNGER_DEATH_THRESHOLD = 80 # dies after 8 consecutive missed meals (80/10)
 
 #Producer Agent
-
-
-
-#Nations' Efficiency
-EFFICIENCY_NATION_A = 1.0
+EFFICIENCY_NATION_A = 0.99
 EFFICIENCY_NATION_B = 0.8
 
 #Trader Agent

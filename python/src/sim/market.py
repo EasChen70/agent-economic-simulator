@@ -28,7 +28,7 @@ class Market:
         self.food += units
 
     def sell_food(self, wealth):
-        if wealth >= self.price:
+        if wealth >= self.price and self.food >= 1:
             self.cash += self.price
             self.food -= 1
             self.attempted_demand += 1 #every attempt success or not

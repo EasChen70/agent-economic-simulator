@@ -4,6 +4,7 @@ from config import (
     HUNGER_PER_TICK,
     HUNGER_DEATH_THRESHOLD
 )
+
 class CitizenAgent:
     def __init__(self):
         self.wealth = CITIZEN_STARTING_WEALTH
@@ -15,7 +16,7 @@ class CitizenAgent:
         self.wealth += WAGE_PER_TICK
 
     def consume(self, market):
-        success =market.sell_food(self.wealth)
+        success = market.sell_food(self.wealth)
         if success:
             self.wealth -= market.price
         return success

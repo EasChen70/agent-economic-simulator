@@ -5,7 +5,8 @@ from config import (
     PRICE_K, 
     PRICE_FLOOR, 
     PRICE_CEILING,
-    WAGE_PER_TICK
+    WAGE_PER_TICK,
+    PRICE_K_DEFLATION
 )
 class Market:
     '''
@@ -42,11 +43,19 @@ class Market:
         shortage = (self.attempted_demand - self.fulfilled) / max (1, self.attempted_demand)
         if shortage > 0:
             self.price *= (1 + PRICE_K * shortage)
+        #Deflation feature
+        else: 
+            surplus_ratio = self.food / max(1, self.attempted_demand)
+            self.price *= (1 - PRICE_K_DEFLATION * surplus_ratio)    
         #clamp: price_floor <= price <= price_ceiling
         self.price = max(PRICE_FLOOR, min(PRICE_CEILING, self.price))
         self.attempted_demand = 0  
         self.fulfilled = 0          
+
         return shortage
+
+
+
 
     def snapshot(self):
         shortage = (self.attempted_demand - self.fulfilled) / max (1, self.attempted_demand)

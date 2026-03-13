@@ -25,3 +25,4 @@ STARTING_PRICE = 2.0
 PRICE_K = 0.1 #How aggressive market reacts to shortage; Low k = slow, sluggish market. High k = volatile, reactive market
 PRICE_FLOOR = 0.5 
 PRICE_CEILING = 20.0
+PRICE_K_DEFLATION = 0.05 #Policy knob for LLM agent in future, deflation
